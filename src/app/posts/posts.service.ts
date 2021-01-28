@@ -8,6 +8,7 @@ export class PostsService {
   private posts: Post[] = [];
   private postsUpdated = new Subject<Post[]>();
 
+ // Recebe os posts
   getPosts() {
     return [...this.posts];
   }
