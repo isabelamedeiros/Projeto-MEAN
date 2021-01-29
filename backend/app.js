@@ -1,7 +1,23 @@
 // Express é uma cadeia de middlewares
 const express = require('express');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+
+const Post = require('./models/post');
 
 const app = express();
+
+mongoose.connect("mongodb+srv://IsabelaMedeiros:Ooo888@cluster0.yqusn.mongodb.net/node-angular?retryWrites=true&w=majority")
+  .then(() => {
+    console.log('Conectado ao MongoDB');
+    })
+    .catch(() => {
+      console.log('Falha na conexão com o Mongo')
+    });
+
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -15,8 +31,20 @@ app.use((req, res, next) => {
   next();
 });
 
+app.post("/api/posts", (req, res, next) => {
+  const post = new Post({
+    title: req.body.title,
+    content: req.body.content
+  });
+  post.save();
+  res.status(201).json({
+    message:'Post Adicionado com Sucesso!'
+  });
+});
+
+
 //Definindo a API que será acionada com o POST
-app.use('/api/posts', (req, res, next) => {
+app.get("/api/posts", (req, res, next) => {
   const posts = [
     //Dados mockados
     {
@@ -38,7 +66,7 @@ app.use('/api/posts', (req, res, next) => {
       id: '74632deW',
       title: 'How does IBM blockchain solves the problem of double spending and denial of service?',
       content: 'I have completed IBM Blockchain Essentials, and I was wondering still in transactions ownership of some property can be transfered. There is no cryptocurrency involved but the value can transfer though blockchain. How it is prevented as we have this...'
-    }
+    },
 
   ];
   // 200 -> resultado com sucesso
