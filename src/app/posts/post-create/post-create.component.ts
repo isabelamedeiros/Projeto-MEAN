@@ -8,6 +8,7 @@ import { PostsService } from "../posts.service";
   templateUrl: "./post-create.component.html",
   styleUrls: ["./post-create.component.css"]
 })
+
 export class PostCreateComponent {
   enteredTitle = "";
   enteredContent = "";
