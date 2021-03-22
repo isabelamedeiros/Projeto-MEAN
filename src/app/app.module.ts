@@ -15,6 +15,8 @@ import { PostCreateComponent } from "./posts/post-create/post-create.component";
 import { HeaderComponent } from "./header/header.component";
 import { PostListComponent } from "./posts/post-list/post-list.component";
 import { AppRoutingModule } from "./app-routing.module";
+import { FooterComponent } from './footer/footer.component';
+import { ItensComponent } from './itens/itens.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { AppRoutingModule } from "./app-routing.module";
     PostCreateComponent,
     HeaderComponent,
     PostListComponent,
+    FooterComponent,
+    ItensComponent,
   ],
   imports: [
     BrowserModule,
