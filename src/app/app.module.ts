@@ -14,13 +14,14 @@ import { MatListModule } from '@angular/material/list';
 
 import { AppComponent } from "./app.component";
 import { PostCreateComponent } from "./posts/post-create/post-create.component";
-import { HeaderComponent } from "./header/header.component";
+import { HeaderComponent } from "./components/template/header/header.component";
 import { PostListComponent } from "./posts/post-list/post-list.component";
 import { AppRoutingModule } from "./app-routing.module";
-import { FooterComponent } from './footer/footer.component';
-import { NavComponent } from './nav/nav.component';
-import { HomeComponent } from './home/home.component';
-import { ProductCrudComponent } from './product-crud/product-crud.component';
+import { FooterComponent } from './components/template/footer/footer.component';
+import { NavComponent } from './components/template/nav/nav.component';
+import { HomeComponent } from './components/views/home/home.component';
+import { ProductCrudComponent } from './components/views/product-crud/product-crud.component';
+import { ProductCreateComponent } from './components/product/product-create/product-create.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { ProductCrudComponent } from './product-crud/product-crud.component';
     NavComponent,
     HomeComponent,
     ProductCrudComponent,
+    ProductCreateComponent,
   ],
   imports: [
     BrowserModule,
